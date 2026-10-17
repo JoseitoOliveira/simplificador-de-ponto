@@ -1,0 +1,515 @@
+{
+  "TC-01": {
+    "status": "PASS",
+    "startDate": "2026-09-16",
+    "endDate": "2026-10-15",
+    "totalDays": 22,
+    "card2Main": "+01h 43m",
+    "card2Desc": "Saldo do ciclo: -25h 52m (Desvio: 0m)",
+    "sep30Punches": [
+      "09:13",
+      "12:16",
+      "13:27",
+      "15:19",
+      "15:53",
+      "18:19"
+    ],
+    "sep30Balance": -39,
+    "duration": 0.36994338035583496
+  },
+  "TC-02": {
+    "status": "PASS",
+    "cases": [
+      {
+        "threshold": 10,
+        "origWork": -592,
+        "optWork": -592,
+        "workDiff": 0,
+        "origTotal": -1552,
+        "optTotal": -1552,
+        "totalDiff": 0,
+        "poolMinutes": -47,
+        "absorbedDays": 4,
+        "eligibleDays": 14,
+        "simplifiedExceptions": 15
+      },
+      {
+        "threshold": 20,
+        "origWork": -592,
+        "optWork": -592,
+        "workDiff": 0,
+        "origTotal": -1552,
+        "optTotal": -1552,
+        "totalDiff": 0,
+        "poolMinutes": -61,
+        "absorbedDays": 5,
+        "eligibleDays": 13,
+        "simplifiedExceptions": 14
+      },
+      {
+        "threshold": 30,
+        "origWork": -592,
+        "optWork": -592,
+        "workDiff": 0,
+        "origTotal": -1552,
+        "optTotal": -1552,
+        "totalDiff": 0,
+        "poolMinutes": -90,
+        "absorbedDays": 6,
+        "eligibleDays": 12,
+        "simplifiedExceptions": 13
+      },
+      {
+        "threshold": 45,
+        "origWork": -592,
+        "optWork": -592,
+        "workDiff": 0,
+        "origTotal": -1552,
+        "optTotal": -1552,
+        "totalDiff": 0,
+        "poolMinutes": -206,
+        "absorbedDays": 9,
+        "eligibleDays": 9,
+        "simplifiedExceptions": 10
+      },
+      {
+        "threshold": 60,
+        "origWork": -592,
+        "optWork": -592,
+        "workDiff": 0,
+        "origTotal": -1552,
+        "optTotal": -1552,
+        "totalDiff": 0,
+        "poolMinutes": -158,
+        "absorbedDays": 12,
+        "eligibleDays": 6,
+        "simplifiedExceptions": 7
+      }
+    ]
+  },
+  "TC-03": {
+    "status": "PASS",
+    "monotonicReduction": true,
+    "steps": [
+      {
+        "sliderValue": 10,
+        "displayText": "±10 min",
+        "simpCountCard": 15,
+        "reductionBadgeText": "-17% cliques",
+        "renderedRows": 17
+      },
+      {
+        "sliderValue": 30,
+        "displayText": "±30 min",
+        "simpCountCard": 13,
+        "reductionBadgeText": "-28% cliques",
+        "renderedRows": 15
+      },
+      {
+        "sliderValue": 45,
+        "displayText": "±45 min",
+        "simpCountCard": 10,
+        "reductionBadgeText": "-44% cliques",
+        "renderedRows": 12
+      }
+    ]
+  },
+  "TC-04": {
+    "status": "PASS",
+    "sc1": {
+      "origSum": 315,
+      "optSum": 315,
+      "diff": 0,
+      "violations": 0,
+      "allocations": [
+        {
+          "dateISO": "2026-11-02",
+          "original": 240,
+          "adjusted": 120,
+          "suggestedS2": "19:00"
+        },
+        {
+          "dateISO": "2026-11-03",
+          "original": 40,
+          "adjusted": 100,
+          "suggestedS2": "18:40"
+        },
+        {
+          "dateISO": "2026-11-04",
+          "original": 35,
+          "adjusted": 95,
+          "suggestedS2": "18:35"
+        }
+      ]
+    },
+    "sc2": {
+      "origSum": -592,
+      "optSum": -592,
+      "diff": 0,
+      "violations": 0,
+      "allocations": [
+        {
+          "dateISO": "2026-09-16",
+          "original": 7,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-09-17",
+          "original": -54,
+          "adjusted": -55,
+          "suggestedS2": "16:05"
+        },
+        {
+          "dateISO": "2026-09-18",
+          "original": -29,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-09-21",
+          "original": 151,
+          "adjusted": 90,
+          "suggestedS2": "18:30"
+        },
+        {
+          "dateISO": "2026-09-22",
+          "original": -4,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-09-23",
+          "original": -10,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-09-24",
+          "original": 56,
+          "adjusted": 55,
+          "suggestedS2": "17:55"
+        },
+        {
+          "dateISO": "2026-09-25",
+          "original": -14,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-09-28",
+          "original": -39,
+          "adjusted": -40,
+          "suggestedS2": "16:20"
+        },
+        {
+          "dateISO": "2026-09-29",
+          "original": -66,
+          "adjusted": -67,
+          "suggestedS2": "15:53"
+        },
+        {
+          "dateISO": "2026-09-30",
+          "original": -39,
+          "adjusted": -40,
+          "suggestedS2": "16:20"
+        },
+        {
+          "dateISO": "2026-10-01",
+          "original": 0,
+          "adjusted": 0,
+          "suggestedS2": "17:00"
+        },
+        {
+          "dateISO": "2026-10-02",
+          "original": -280,
+          "adjusted": -240,
+          "suggestedS2": null
+        },
+        {
+          "dateISO": "2026-10-05",
+          "original": -121,
+          "adjusted": -122,
+          "suggestedS2": "14:58"
+        },
+        {
+          "dateISO": "2026-10-06",
+          "original": -140,
+          "adjusted": -141,
+          "suggestedS2": "14:39"
+        },
+        {
+          "dateISO": "2026-10-07",
+          "original": -127,
+          "adjusted": -128,
+          "suggestedS2": "14:52"
+        },
+        {
+          "dateISO": "2026-10-13",
+          "original": 46,
+          "adjusted": 45,
+          "suggestedS2": "17:45"
+        },
+        {
+          "dateISO": "2026-10-14",
+          "original": -38,
+          "adjusted": -39,
+          "suggestedS2": "16:21"
+        },
+        {
+          "dateISO": "2026-10-15",
+          "original": 109,
+          "adjusted": 90,
+          "suggestedS2": "18:30"
+        }
+      ]
+    }
+  },
+  "TC-05": {
+    "status": "PASS",
+    "data": {
+      "origTotal": 6,
+      "optTotal": 6,
+      "diff": 0,
+      "poolMinutes": 6,
+      "eligibleDaysCount": 0,
+      "absorbedDaysCount": 5,
+      "modifiedCount": 1,
+      "allocations": [
+        {
+          "dateISO": "2026-11-02",
+          "orig": 7,
+          "adjusted": 0,
+          "action": "keep_standard",
+          "s2": "17:00"
+        },
+        {
+          "dateISO": "2026-11-03",
+          "orig": -10,
+          "adjusted": 0,
+          "action": "keep_standard",
+          "s2": "17:00"
+        },
+        {
+          "dateISO": "2026-11-04",
+          "orig": 5,
+          "adjusted": 0,
+          "action": "keep_standard",
+          "s2": "17:00"
+        },
+        {
+          "dateISO": "2026-11-05",
+          "orig": 8,
+          "adjusted": 0,
+          "action": "keep_standard",
+          "s2": "17:00"
+        },
+        {
+          "dateISO": "2026-11-06",
+          "orig": -4,
+          "adjusted": 6,
+          "action": "modify_exit",
+          "s2": "17:06"
+        }
+      ]
+    }
+  },
+  "TC-06": {
+    "status": "PASS",
+    "data": {
+      "raw": {
+        "dateISO": "2026-10-12",
+        "isSpecial": true,
+        "specialReason": "Feriado / Sem expediente",
+        "punchesCount": 0,
+        "originalBalanceMinutes": 0
+      },
+      "optimized": {
+        "simplifiedAction": "keep_standard",
+        "instruction": "Feriado / Sem intervenção necessária",
+        "reason": "Feriado / Sem expediente",
+        "suggestedPunchS2": null,
+        "adjustedBalance": 0
+      }
+    }
+  },
+  "TC-07": {
+    "status": "PASS",
+    "data": {
+      "d08": {
+        "raw": {
+          "isSpecial": true,
+          "reason": "Falta sem abono / dia todo",
+          "bal": -480
+        },
+        "opt": {
+          "action": "special_action",
+          "instruction": "No app da empresa: Lançar como Falta Integral / Remover batidas pré-preenchidas",
+          "bal": -480
+        }
+      },
+      "d09": {
+        "raw": {
+          "isSpecial": true,
+          "reason": "Falta sem abono / dia todo",
+          "bal": -480
+        },
+        "opt": {
+          "action": "special_action",
+          "instruction": "No app da empresa: Lançar como Falta Integral / Remover batidas pré-preenchidas",
+          "bal": -480
+        }
+      }
+    }
+  },
+  "TC-08": {
+    "status": "PASS"
+  },
+  "TC-09": {
+    "status": "PASS",
+    "totalDays": 175,
+    "mar08": {
+      "dateISO": "2026-03-08",
+      "punchCount": 4,
+      "punches": [
+        "12:44",
+        "13:44",
+        "16:33",
+        "19:11"
+      ],
+      "originalBalanceMinutes": 218,
+      "isSpecial": true,
+      "specialType": "extra_work"
+    },
+    "mar06": {
+      "dateISO": "2026-03-06",
+      "punchCount": 4,
+      "punches": [
+        "09:17",
+        "11:30",
+        "12:30",
+        "18:18"
+      ],
+      "originalBalanceMinutes": 1,
+      "isSpecial": false
+    },
+    "sumBalances": 2688,
+    "periodBalance": 2688,
+    "card2Main": "+26h 54m",
+    "card2Desc": "Saldo do ciclo: +44h 48m (Desvio: 0m)",
+    "duration": 0.2757096290588379
+  },
+  "TC-10": {
+    "status": "PASS",
+    "days": [
+      {
+        "dateISO": "2026-02-18",
+        "dateStr": "qua., 18 fev. 2026",
+        "isSpecial": true,
+        "specialType": "extra_work",
+        "specialReason": "Trabalho em Feriado",
+        "optAction": "extra_work",
+        "adjustedBalance": 225,
+        "originalBalance": 225,
+        "punches": [
+          "09:05",
+          "12:50"
+        ]
+      },
+      {
+        "dateISO": "2026-03-08",
+        "dateStr": "dom., 08 mar. 2026",
+        "isSpecial": true,
+        "specialType": "extra_work",
+        "specialReason": "Trabalho em Fim de Semana",
+        "optAction": "extra_work",
+        "adjustedBalance": 218,
+        "originalBalance": 218,
+        "punches": [
+          "12:44",
+          "13:44",
+          "16:33",
+          "19:11"
+        ]
+      },
+      {
+        "dateISO": "2026-04-05",
+        "dateStr": "dom., 05 abr. 2026",
+        "isSpecial": true,
+        "specialType": "extra_work",
+        "specialReason": "Trabalho em Fim de Semana",
+        "optAction": "extra_work",
+        "adjustedBalance": 137,
+        "originalBalance": 137,
+        "punches": [
+          "18:56",
+          "21:13"
+        ]
+      },
+      {
+        "dateISO": "2026-06-04",
+        "dateStr": "qui., 04 jun. 2026",
+        "isSpecial": true,
+        "specialType": "extra_work",
+        "specialReason": "Trabalho em Feriado",
+        "optAction": "extra_work",
+        "adjustedBalance": 207,
+        "originalBalance": 207,
+        "punches": [
+          "10:43",
+          "14:10"
+        ]
+      },
+      {
+        "dateISO": "2026-08-12",
+        "dateStr": "qua., 12 ago. 2026",
+        "isSpecial": true,
+        "specialType": "extra_work",
+        "specialReason": "Trabalho em Feriado",
+        "optAction": "extra_work",
+        "adjustedBalance": 34,
+        "originalBalance": 34,
+        "punches": [
+          "19:10",
+          "19:44"
+        ]
+      }
+    ],
+    "poolMinutes": 126
+  },
+  "TC-11": {
+    "status": "PASS",
+    "jun29": {
+      "isSpecial": false,
+      "originalBalanceMinutes": -3,
+      "partialHolidayNote": "Feriado / + 04h 45m",
+      "simplifiedAction": "keep_standard",
+      "adjustedBalance": 0
+    },
+    "apr14": {
+      "hasMissingPunch": true,
+      "punchesCount": 5,
+      "simplifiedAction": "modify_exit"
+    }
+  },
+  "TC-12": {
+    "status": "PASS",
+    "partA": {
+      "modifyDaysCount": 135,
+      "violationsCeilingCount": 0,
+      "dump2359Count": 0,
+      "recruitedDaysCount": 42,
+      "origTotal": 2688,
+      "optTotal": 2688,
+      "delta": 0,
+      "ceilingExceededWarning": false
+    },
+    "partB": {
+      "poolMinutes": -90,
+      "modifyDaysCount": 12,
+      "violationsFloorCount": 0,
+      "violationsExact1700Count": 0,
+      "delta": 0
+    }
+  }
+}
