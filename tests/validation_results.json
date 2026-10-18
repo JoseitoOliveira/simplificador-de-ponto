@@ -15,7 +15,7 @@
       "18:19"
     ],
     "sep30Balance": -39,
-    "duration": 0.3269634246826172
+    "duration": 0.3283717632293701
   },
   "TC-02": {
     "status": "PASS",
@@ -397,7 +397,7 @@
     "periodBalance": 2688,
     "card2Main": "+26h 54m",
     "card2Desc": "Saldo do ciclo: +44h 48m (Desvio: 0m)",
-    "duration": 0.4160599708557129
+    "duration": 0.26162290573120117
   },
   "TC-10": {
     "status": "PASS",

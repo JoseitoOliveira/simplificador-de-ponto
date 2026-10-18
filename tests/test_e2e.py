@@ -261,7 +261,10 @@ def run_tests():
 
         # Regras de Impressão (@media print)
         print_header = page.locator(".print-header")
+        header_link = page.locator(".print-header a[href='https://joseitooliveira.github.io/simplificador-de-ponto/']")
+        footer_link = page.locator(".print-footer a[href='https://joseitooliveira.github.io/simplificador-de-ponto/']")
         record("Estilos de Impressão (Print Header)", print_header.count() > 0, "Header de impressão presente no DOM com formatação dedicada")
+        record("Link de Impressão no Cabeçalho e Rodapé", header_link.count() > 0 and footer_link.count() > 0, f"Link https://joseitooliveira.github.io/simplificador-de-ponto/ presente em header e footer")
 
         print("\n==================================================")
         print("8. AUDITORIA DE CONSOLE E REDE")

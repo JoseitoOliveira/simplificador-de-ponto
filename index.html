@@ -90,8 +90,16 @@
 
   <!-- Cabeçalho Exclusivo para Impressão -->
   <div class="hidden print-header max-w-7xl mx-auto px-4 pt-6">
-    <h1 class="text-2xl font-bold text-slate-900">Extrato Simplificado de Ponto por Exceção</h1>
-    <p class="text-xs text-slate-600" id="print-period-info">Relatório de Lançamentos</p>
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-900">Extrato Simplificado de Ponto por Exceção</h1>
+        <p class="text-xs text-slate-600 mt-0.5" id="print-period-info">Relatório de Lançamentos</p>
+      </div>
+      <div class="text-xs text-slate-600 sm:text-right">
+        <span class="text-slate-500">Acesse: </span>
+        <a href="https://joseitooliveira.github.io/simplificador-de-ponto/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-mono">https://joseitooliveira.github.io/simplificador-de-ponto/</a>
+      </div>
+    </div>
   </div>
 
   <!-- Conteúdo Principal -->
@@ -423,6 +431,12 @@
             <!-- As linhas da tabela serão injetadas via js/ui.js -->
           </tbody>
         </table>
+
+        <!-- Rodapé Exclusivo para Impressão da Tabela Resultante -->
+        <div class="hidden print-footer mt-4 pt-3 border-t border-slate-300 text-xs text-slate-500 flex justify-between items-center">
+          <span>Simplificador de Ponto por Exceção</span>
+          <a href="https://joseitooliveira.github.io/simplificador-de-ponto/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-mono">https://joseitooliveira.github.io/simplificador-de-ponto/</a>
+        </div>
       </div>
     </section>
   </main>
@@ -434,7 +448,7 @@
         Simplificador de Ponto por Exceção &bull; Processamento Client-Side de Alta Performance
       </p>
       <p class="text-slate-400">
-        Compatível com extratos do aplicativo Ponto Fácil &bull; Art. 74, § 4º da CLT
+        <a href="https://joseitooliveira.github.io/simplificador-de-ponto/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 underline text-slate-500">joseitooliveira.github.io/simplificador-de-ponto</a> &bull; Compatível com extratos do aplicativo Ponto Fácil &bull; Art. 74, § 4º da CLT
       </p>
     </div>
   </footer>

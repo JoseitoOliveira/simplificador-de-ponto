@@ -179,4 +179,15 @@ input[type="range"]::-moz-range-thumb:hover {
     border-bottom: 2px solid #0f172a;
     padding-bottom: 10px;
   }
+
+  .print-footer {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 8px;
+    border-top: 1px solid #cbd5e1;
+    font-size: 8.5pt;
+    color: #475569;
+  }
 }
