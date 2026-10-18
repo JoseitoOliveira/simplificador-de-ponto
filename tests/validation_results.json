@@ -15,7 +15,7 @@
       "18:19"
     ],
     "sep30Balance": -39,
-    "duration": 0.36994338035583496
+    "duration": 0.3269634246826172
   },
   "TC-02": {
     "status": "PASS",
@@ -31,7 +31,7 @@
         "poolMinutes": -47,
         "absorbedDays": 4,
         "eligibleDays": 14,
-        "simplifiedExceptions": 15
+        "simplifiedExceptions": 38
       },
       {
         "threshold": 20,
@@ -44,7 +44,7 @@
         "poolMinutes": -61,
         "absorbedDays": 5,
         "eligibleDays": 13,
-        "simplifiedExceptions": 14
+        "simplifiedExceptions": 36
       },
       {
         "threshold": 30,
@@ -57,7 +57,7 @@
         "poolMinutes": -90,
         "absorbedDays": 6,
         "eligibleDays": 12,
-        "simplifiedExceptions": 13
+        "simplifiedExceptions": 34
       },
       {
         "threshold": 45,
@@ -70,7 +70,7 @@
         "poolMinutes": -206,
         "absorbedDays": 9,
         "eligibleDays": 9,
-        "simplifiedExceptions": 10
+        "simplifiedExceptions": 28
       },
       {
         "threshold": 60,
@@ -83,7 +83,7 @@
         "poolMinutes": -158,
         "absorbedDays": 12,
         "eligibleDays": 6,
-        "simplifiedExceptions": 7
+        "simplifiedExceptions": 22
       }
     ]
   },
@@ -94,22 +94,22 @@
       {
         "sliderValue": 10,
         "displayText": "±10 min",
-        "simpCountCard": 15,
-        "reductionBadgeText": "-17% cliques",
+        "simpCountCard": 38,
+        "reductionBadgeText": "-78% cliques",
         "renderedRows": 17
       },
       {
         "sliderValue": 30,
         "displayText": "±30 min",
-        "simpCountCard": 13,
-        "reductionBadgeText": "-28% cliques",
+        "simpCountCard": 34,
+        "reductionBadgeText": "-80% cliques",
         "renderedRows": 15
       },
       {
         "sliderValue": 45,
         "displayText": "±45 min",
-        "simpCountCard": 10,
-        "reductionBadgeText": "-44% cliques",
+        "simpCountCard": 28,
+        "reductionBadgeText": "-84% cliques",
         "renderedRows": 12
       }
     ]
@@ -397,7 +397,7 @@
     "periodBalance": 2688,
     "card2Main": "+26h 54m",
     "card2Desc": "Saldo do ciclo: +44h 48m (Desvio: 0m)",
-    "duration": 0.2757096290588379
+    "duration": 0.4160599708557129
   },
   "TC-10": {
     "status": "PASS",

@@ -118,7 +118,7 @@ def run_tests():
         record("Card 1: Período Extraído", "16 set" in period_text and "15 out" in period_text, f"Período: {period_text}")
         record("Card 1: Dias Úteis", "19" in workdays_text, f"Dias úteis: {workdays_text}")
         record("Card 2: Saldo Original Preservado", "+01h 43m" in balance_text, f"Saldo: {balance_text}")
-        record("Card 3: Exceções Originais vs Simplificadas", int(orig_exc) == 18, f"Originais: {orig_exc}, Simplificadas: {simp_exc}, Redução: {reduc_badge}")
+        record("Card 3: Alterações Originais vs Simplificadas", int(orig_exc) == 174, f"Originais: {orig_exc}, Simplificadas: {simp_exc}, Redução: {reduc_badge}")
 
         # Fidelidade Matemática Estrita (Zero Desvio)
         math_check = page.evaluate("""() => {

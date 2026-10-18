@@ -308,9 +308,9 @@ export function renderSummaryCards(summaryData, periodInfo) {
       balanceDescEl.textContent = `Saldo do ciclo: ${formatDelta(cycleBalance)} (Desvio: ${diff}m)`;
     }
 
-    // 3. Métricas de Impacto e Redução de Cliques
-    const origCount = summaryData.originalExceptionCount ?? 0;
-    const simpCount = summaryData.simplifiedExceptionCount ?? 0;
+    // 3. Métricas de Impacto e Redução de Alterações / Cliques
+    const origCount = summaryData.originalModificationsCount ?? summaryData.originalExceptionCount ?? 0;
+    const simpCount = summaryData.simplifiedModificationsCount ?? summaryData.simplifiedExceptionCount ?? 0;
     const reduction = summaryData.reductionPercentage ?? (origCount > 0 ? Math.round(((origCount - simpCount) / origCount) * 100) : 0);
 
     if (origExceptionsEl) origExceptionsEl.textContent = origCount;

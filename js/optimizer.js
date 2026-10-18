@@ -22,6 +22,58 @@ export const DEFAULT_CONFIG = {
 };
 
 /**
+ * Normaliza string de horário para "HH:mm".
+ * @param {string} t 
+ * @returns {string}
+ */
+export function normalizeTimeStr(t) {
+  if (!t || typeof t !== 'string') return '';
+  const trimmed = t.trim();
+  const parts = trimmed.split(':');
+  if (parts.length < 2) return '';
+  return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}`;
+}
+
+/**
+ * Calcula a quantidade de modificações (cancelamentos e adições) necessárias
+ * para transformar a lista de batidas pré-preenchidas na lista de batidas desejada.
+ * 
+ * Exemplo: Se o sistema pré-preenche 4 batidas (08:00, 12:00, 13:00, 17:00)
+ * e o colaborador precisa registrar 4 batidas reais diferentes (09:10, 12:59, 14:03, 18:21),
+ * são necessários 4 cancelamentos e 4 adições = 8 modificações.
+ * Se simplificado para manter as 3 primeiras e ajustar a saída (08:00, 12:00, 13:00, 17:07),
+ * é necessário apenas 1 cancelamento (17:00) e 1 adição (17:07) = 2 modificações.
+ * 
+ * @param {Array<string>} prefilled - Batidas pré-preenchidas pelo sistema corporativo
+ * @param {Array<string>} target - Batidas finais desejadas
+ * @returns {{ cancellations: number, additions: number, total: number }}
+ */
+export function countModifications(prefilled = [], target = []) {
+  const targetRemaining = target.map(normalizeTimeStr).filter(Boolean);
+  let cancellations = 0;
+
+  for (const p of prefilled.map(normalizeTimeStr).filter(Boolean)) {
+    const idx = targetRemaining.indexOf(p);
+    if (idx !== -1) {
+      // Batida coincide: mantida sem alteração
+      targetRemaining.splice(idx, 1);
+    } else {
+      // Batida pré-preenchida não está no destino: precisa ser cancelada
+      cancellations++;
+    }
+  }
+
+  // Batidas de destino que não estavam no pré-preenchido: precisam ser adicionadas
+  const additions = targetRemaining.length;
+
+  return {
+    cancellations,
+    additions,
+    total: cancellations + additions
+  };
+}
+
+/**
  * Converte string no formato "HH:mm" ou "+HH:mm" / "-HH:mm" em total de minutos a partir da meia-noite.
  * @param {string} timeStr - Ex: "08:00", "17:00", "20:00"
  * @returns {number} Minutos inteiros
@@ -526,12 +578,64 @@ export function optimizePunches(days, config = {}) {
   const totalOriginalBalanceMinutes = (days || []).reduce((sum, d) => sum + (d.originalBalanceMinutes || 0), 0);
   const totalOptimizedBalanceMinutes = allDays.reduce((sum, d) => sum + (d.adjustedBalance || 0), 0);
 
-  const originalExceptionCount = workDays.filter(d => (d.originalBalanceMinutes || 0) !== 0).length;
-  const simplifiedExceptionCount = workDays.filter(d => d.simplifiedAction === 'modify_exit' || d.simplifiedAction === 'half_day').length;
-  const extraWorkDaysCount = specialDays.filter(d => d.simplifiedAction === 'extra_work').length;
-  const reductionPercentage = originalExceptionCount > 0
-    ? Math.round(((originalExceptionCount - simplifiedExceptionCount) / originalExceptionCount) * 100)
+  // Batidas padrão pré-preenchidas para dias úteis no portal da empresa
+  const stdPunches = [
+    standardSchedule.e1,
+    standardSchedule.s1,
+    standardSchedule.e2,
+    standardSchedule.s2
+  ].map(normalizeTimeStr).filter(Boolean);
+
+  // Etapa 8: Cálculo exato de alterações (cancelamentos e adições) originais vs simplificadas
+  for (const day of allDays) {
+    const isPreFilledWorkDay = !day.isWeekend && (!day.isSpecial || day.specialType === 'absence');
+    const prefilled = isPreFilledWorkDay ? [...stdPunches] : [];
+    const origPunches = (day.punches || []).map(p => (typeof p === 'string' ? p : p.time)).map(normalizeTimeStr).filter(Boolean);
+
+    let simpPunches = [];
+    if (day.simplifiedAction === 'keep_standard') {
+      simpPunches = isPreFilledWorkDay ? [...stdPunches] : [];
+    } else if (day.simplifiedAction === 'modify_exit') {
+      simpPunches = [
+        standardSchedule.e1,
+        standardSchedule.s1,
+        standardSchedule.e2,
+        day.suggestedPunchS2
+      ].map(normalizeTimeStr).filter(Boolean);
+    } else if (day.simplifiedAction === 'half_day') {
+      simpPunches = [
+        standardSchedule.e1,
+        standardSchedule.s1
+      ].map(normalizeTimeStr).filter(Boolean);
+    } else if (day.simplifiedAction === 'special_action') {
+      simpPunches = [];
+    } else if (day.simplifiedAction === 'extra_work') {
+      simpPunches = [...origPunches];
+    } else {
+      simpPunches = isPreFilledWorkDay ? [...stdPunches] : [];
+    }
+
+    const origMod = countModifications(prefilled, origPunches);
+    const simpMod = countModifications(prefilled, simpPunches);
+
+    day.originalModifications = origMod.total;
+    day.originalCancels = origMod.cancellations;
+    day.originalAdds = origMod.additions;
+
+    day.simplifiedModifications = simpMod.total;
+    day.simplifiedCancels = simpMod.cancellations;
+    day.simplifiedAdds = simpMod.additions;
+  }
+
+  const originalModificationsCount = allDays.reduce((sum, d) => sum + (d.originalModifications || 0), 0);
+  const simplifiedModificationsCount = allDays.reduce((sum, d) => sum + (d.simplifiedModifications || 0), 0);
+  const reductionPercentage = originalModificationsCount > 0
+    ? Math.round(((originalModificationsCount - simplifiedModificationsCount) / originalModificationsCount) * 100)
     : 0;
+
+  const originalExceptionDaysCount = workDays.filter(d => (d.originalBalanceMinutes || 0) !== 0).length;
+  const simplifiedExceptionDaysCount = workDays.filter(d => d.simplifiedAction === 'modify_exit' || d.simplifiedAction === 'half_day').length;
+  const extraWorkDaysCount = specialDays.filter(d => d.simplifiedAction === 'extra_work').length;
 
   return {
     workDays,
@@ -542,8 +646,12 @@ export function optimizePunches(days, config = {}) {
       totalOptimizedBalanceMinutes,
       workDaysOriginalBalanceMinutes: workOriginalSum,
       workDaysOptimizedBalanceMinutes: workOptimizedSum,
-      originalExceptionCount,
-      simplifiedExceptionCount,
+      originalModificationsCount,
+      simplifiedModificationsCount,
+      originalExceptionCount: originalModificationsCount,
+      simplifiedExceptionCount: simplifiedModificationsCount,
+      originalExceptionDaysCount,
+      simplifiedExceptionDaysCount,
       extraWorkDaysCount,
       reductionPercentage,
       poolMinutes,
@@ -561,6 +669,8 @@ export function optimizePunches(days, config = {}) {
 if (typeof window !== 'undefined') {
   window.PontoOptimizer = {
     DEFAULT_CONFIG,
+    normalizeTimeStr,
+    countModifications,
     parseTimeToMinutes,
     formatMinutesToTime,
     formatDelta,
